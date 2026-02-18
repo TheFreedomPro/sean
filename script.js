@@ -102,14 +102,14 @@
 
   // Programs:
   // APS Tesla VPP: marketed as "up to ~$400 per battery per year" -> paid 2x/yr, but still $400/yr total.
-  // We model a $400/battery/year cap.
+  // We model a $800/battery/year cap.
   // SRP Battery Partner: $55 per kW per season, 2 seasons/yr = $110 per kW-year.
   const PROGRAMS = {
     APS_TESLA_VPP: {
       label: "APS Tesla VPP",
-      capPerBatteryYear: 400,
+      capPerBatteryYear: 800,
       note:
-        "APS Tesla VPP is commonly described as up to about $400 per battery per year (often paid twice per year). This estimator scales toward that annual cap based on avg event kW and performance."
+        "APS Tesla VPP is commonly described as up to about $800 per battery per year (often paid twice per year). This estimator scales toward that annual cap based on avg event kW and performance."
     },
     SRP_BATTERY_PARTNER: {
       label: "SRP Battery Partner",
