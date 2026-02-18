@@ -8,7 +8,7 @@
   <meta property="og:title" content="Sean York | BRZY Solutions" />
   <meta property="og:description" content="Quick Solar Savings Calculator + proof, map, and partners." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://thefreedompro.github.io/BRZY/" />
+  <meta property="og:url" content="https://thefreedompro.github.io/sean/" />
   <meta property="og:image" content="https://thefreedompro.github.io/BRZY/FullSizeRender.jpeg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -67,6 +67,7 @@
     @media (max-width: 860px) {
       .pricing-grid { grid-template-columns: 1fr; }
     }
+
     .hint {
       font-size: 13px;
       opacity: .75;
@@ -100,6 +101,36 @@
     }
     @media (min-width: 860px) {
       .jotform-wrap { padding-top: 95%; }
+    }
+
+    /* Make utility logos larger + centered */
+    .hero__logos{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:18px;
+      margin-top:18px;
+      flex-wrap:wrap;
+    }
+    .hero__logos .utility-logo{
+      height:56px;
+      width:auto;
+      object-fit:contain;
+    }
+    @media (max-width: 520px){
+      .hero__logos .utility-logo{ height:62px; }
+    }
+
+    /* Make Rep Resources buttons all the same color (remove one green/primary) */
+    .rep-btn.primary{
+      background:#f1f5f4 !important;
+      color:#1f3c35 !important;
+      border-color:#e3e7e6 !important;
+    }
+    .rep-btn.primary:hover{
+      background:#157a5b !important;
+      color:#ffffff !important;
+      border-color:#157a5b !important;
     }
   </style>
 </head>
@@ -139,7 +170,7 @@
     <p class="section-kicker">Direct access for BRZY reps.</p>
 
     <div class="rep-button-grid">
-      <a class="rep-btn primary" href="https://brzynrg.com" target="_blank" rel="noopener">BRZY NRG</a>
+      <a class="rep-btn" href="https://brzynrg.com" target="_blank" rel="noopener">BRZY NRG</a>
       <a class="rep-btn" href="https://brzy.university" target="_blank" rel="noopener">BRZY UNIVERSITY</a>
       <a class="rep-btn" href="https://brzy.university/recruiting" target="_blank" rel="noopener">BRZY RECRUITING</a>
       <a class="rep-btn" href="https://phx.gosolo.io/login" target="_blank" rel="noopener">GOSOLO</a>
@@ -153,10 +184,9 @@
     <div class="phone-header">
       <div class="phone-text">
         <p class="phone-number">
-          <a href="sms:18507813433?&body=WOULD I QUALIFY FOR FREE BATTERIES?">CLICK HERE FOR QUESTIONS?</a>
+          <a href="sms:18507813433?&body=WOULD%20I%20QUALIFY%20FOR%20FREE%20BATTERIES%3F">CLICK HERE FOR QUESTIONS!</a>
         </p>
         <p style="font-size:16px; font-weight:700; color:#157a5b; margin:4px 0 0 0;">
-          ⬆️ Click Questions? above to see
         </p>
       </div>
     </div>
@@ -171,7 +201,7 @@
 
         <div class="field">
           <label for="solarPayment">Monthly solar + battery payment ($)</label>
-          <input id="solarPayment" type="number" min="0" step="1" placeholder="auto from panels + batteries" inputmode="decimal" />
+          <input id="solarPayment" type="number" min="0" step="1" placeholder="auto from panel + battery count" inputmode="decimal" />
         </div>
 
         <div class="field">
@@ -206,7 +236,7 @@
             <div class="field" style="margin:0;">
               <label>Auto monthly payment</label>
               <div id="autoPayment" class="readonly-pill">$0</div>
-              <div class="hint">Auto = (panels × 10) + (batteries × 66)</div>
+              <div class="hint">Auto-fills from panel + battery count. You can still override.</div>
             </div>
           </div>
         </div>
@@ -366,6 +396,10 @@
     (function () {
       const $ = (id) => document.getElementById(id);
 
+      // Back-end pricing (hidden from UI text)
+      const PANEL_RATE = 3.55;   // $/panel/month
+      const BATTERY_RATE = 100;  // $/battery/month
+
       const billEl = $("bill");
       const solarPaymentEl = $("solarPayment");
       const yearsEl = $("yearsRange");
@@ -397,14 +431,15 @@
       function clamp(n, a, b) { return Math.max(a, Math.min(b, n)); }
 
       function computeAutoPayment() {
-        const panels = Math.max(0, parseInt(panelQtyEl.value || "0", 3.55));
-        const bats = Math.max(0, parseInt(priceBatteryQtyEl.value || "0", 100));
-        const auto = panels * 3.55 + bats * 100;
+        const panels = Math.max(0, parseInt(panelQtyEl.value || "0", 10));
+        const bats = Math.max(0, parseInt(priceBatteryQtyEl.value || "0", 10));
+        const auto = (panels * PANEL_RATE) + (bats * BATTERY_RATE);
+
         autoPaymentEl.textContent = money0(auto);
 
         const current = parseFloat(solarPaymentEl.value || "");
         if (!Number.isFinite(current) || solarPaymentEl.dataset.userOverride !== "1") {
-          solarPaymentEl.value = auto ? String(auto) : "";
+          solarPaymentEl.value = auto ? String(Math.round(auto)) : "";
           solarPaymentEl.dataset.userOverride = "0";
         }
         return auto;
@@ -436,14 +471,14 @@
         const solarTotal = solarAnnual.reduce((a, b) => a + b, 0);
         const savingsTotal = utilTotal - solarTotal;
 
-        return { utilAnnual, solarAnnual, utilTotal, savingsTotal };
+        return { utilAnnual, utilTotal, savingsTotal };
       }
 
       function render() {
         yearsDisplayEl.textContent = yearsEl.value;
         snapYearEl.textContent = yearsEl.value;
 
-        const { utilAnnual, solarAnnual, utilTotal, savingsTotal } = calcSeries();
+        const { utilAnnual, utilTotal, savingsTotal } = calcSeries();
         utilTotalEl.textContent = money0(utilTotal);
         savingsTotalEl.textContent = money0(savingsTotal);
 
@@ -522,8 +557,9 @@
         let annual = 0;
         let note = "";
 
+        // Keep your existing logic; this only affects the incentive estimate, not panel/battery costs
         if (p === "SRP_BATTERY_PARTNER") {
-          annual = credited * 110;
+          annual = credited * 110; // $55/kW/season * 2
           note = "SRP Battery Partner estimate uses $55 per kW per season × 2 seasons/year (performance-adjusted).";
         } else {
           const cappedKw = Math.min(credited, 20);
@@ -572,6 +608,7 @@
 
       yearsDisplayEl.textContent = yearsEl.value;
       snapYearEl.textContent = yearsEl.value;
+
       fillBatteryModels();
       computeAutoPayment();
       render();
