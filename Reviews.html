@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Reviews</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 20px;
+      font-size: 2rem;
+      color: #1a4d2e;
+    }
+
+    p.sub {
+      color: #555;
+      font-size: 1rem;
+      margin-bottom: 30px;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+      gap: 30px;
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .reviews-grid img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+      transition: transform 0.2s;
+    }
+
+    .reviews-grid img:hover {
+      transform: scale(1.02);
+    }
+
+    @media (max-width: 600px) {
+      .reviews-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>What local homeowners are saying</h1>
+  <p class="sub">Independent public feedback from real customers.</p>
+
+  <div class="reviews-grid">
+    <img src="review_brad.jpg" alt="Review from Brad">
+    <img src="review_tammy.jpg" alt="Review from Tammy">
+    <img src="review_leslie.jpg" alt="Review from Leslie">
+    <img src="review_juan.jpg" alt="Review from Juan">
+    <img src="review_harvey.jpg" alt="Review from Harvey">
+    <img src="review_cilvia.jpg" alt="Review from Cilvia">
+    <img src="review_carolyn.jpg" alt="Review from Carolyn">
+    <img src="review_terri.jpg" alt="Review from Terri">
+  </div>
+
+</body>
+</html>

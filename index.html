@@ -1,0 +1,584 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AIDAN LEAVITT BRZY Solutions</title>
+
+  <meta property="og:title" content="Aidan Leavitt | BRZY Solutions" />
+  <meta property="og:description" content="Quick Solar Savings Calculator + proof, map, and partners." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://thefreedompro.github.io/BRZY/" />
+  <meta property="og:image" content="https://thefreedompro.github.io/BRZY/FullSizeRender.jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://thefreedompro.github.io/BRZY/FullSizeRender.jpeg" />
+
+  <link rel="stylesheet" href="style.css?v=3" />
+
+  <style>
+    .totals {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+    @media (max-width: 860px) {
+      .totals { grid-template-columns: 1fr; }
+    }
+
+    .rep-button-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+    .rep-btn {
+      display: block;
+      text-align: center;
+      padding: 14px 18px;
+      border-radius: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      background: #f1f5f4;
+      color: #1f3c35;
+      border: 1px solid #e3e7e6;
+      transition: transform .15s ease, background .15s ease, color .15s ease;
+    }
+    .rep-btn:hover {
+      background: #157a5b;
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+    .rep-btn.primary {
+      background: #157a5b;
+      color: #ffffff;
+      border-color: #157a5b;
+    }
+    .rep-btn.primary:hover { background: #0f5f46; }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 10px;
+    }
+    @media (max-width: 860px) {
+      .pricing-grid { grid-template-columns: 1fr; }
+    }
+    .hint {
+      font-size: 13px;
+      opacity: .75;
+      margin-top: 6px;
+      line-height: 1.35;
+    }
+    .readonly-pill {
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: #f6f8f8;
+      border: 1px solid #e8eeee;
+      font-weight: 800;
+      color: #143a33;
+    }
+
+    .jotform-wrap {
+      position: relative;
+      width: 100%;
+      padding-top: 140%;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid #e8eeee;
+      background: #ffffff;
+    }
+    .jotform-wrap iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    @media (min-width: 860px) {
+      .jotform-wrap { padding-top: 95%; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="hero">
+    <div class="container">
+      <div class="hero__inner">
+        <div class="hero__content">
+          <h1 class="title">Calculate Your Savings</h1>
+          <p class="subtitle">See how switching to solar can reduce your electricity costs over time.</p>
+        </div>
+
+        <img src="IMG_4892.jpeg" alt="BRZY Solutions" class="brzy-logo" />
+      </div>
+
+      <div class="hero__logos">
+        <img src="IMG_4883.jpeg" alt="SRP" class="utility-logo" />
+        <img src="IMG_4884.jpeg" alt="APS" class="utility-logo" />
+      </div>
+    </div>
+  </header>
+
+  <section class="links card" id="more-links">
+    <h2 class="section-title">ABOUT US</h2>
+    <p class="section-kicker">Independent coverage, rankings, and public profiles.</p>
+    <ul class="link-chips">
+      <li><a href="https://www.google.com/search?q=aidan%20leavitt%20new%20hampshire" target="_blank" rel="noopener">AIDAN LEAVITT — Google</a></li>
+      <li><a href="https://www.bbb.org/us/az/phoenix/profile/solar-installation/independent-solar-1126-1000110842" target="_blank" rel="noopener">BBB A+ RATING — Google</a></li>
+      <li><a href="https://www.aps.com/en/About/Sustainability-and-Innovation/Technology-and-Innovation/Storage-Rewards" target="_blank" rel="noopener">APS VPP INCENTIVE</a></li>
+      <li><a href="https://www.srpnet.com/energy-savings-rebates/home/residential-solar/battery-partner" target="_blank" rel="noopener">SRP PARTNER PROGRAM</a></li>
+    </ul>
+  </section>
+
+  <section class="links card" id="rep-links">
+    <h2 class="section-title">REP RESOURCES</h2>
+    <p class="section-kicker">Direct access for BRZY reps.</p>
+
+    <div class="rep-button-grid">
+      <a class="rep-btn primary" href="https://brzynrg.com" target="_blank" rel="noopener">BRZY NRG</a>
+      <a class="rep-btn" href="https://brzy.university" target="_blank" rel="noopener">BRZY UNIVERSITY</a>
+      <a class="rep-btn" href="https://brzy.university/recruiting" target="_blank" rel="noopener">BRZY RECRUITING</a>
+      <a class="rep-btn" href="https://phx.gosolo.io/login" target="_blank" rel="noopener">GOSOLO</a>
+      <a class="rep-btn" href="https://aurorasolar.com" target="_blank" rel="noopener">AURORA</a>
+      <a class="rep-btn" href="https://www.canva.com" target="_blank" rel="noopener">CANVA</a>
+    </div>
+  </section>
+
+  <main class="container">
+
+    <div class="phone-header">
+      <div class="phone-text">
+        <p class="phone-number">
+          <a href="sms:16037679594?&body=WOULD I QUALIFY FOR FREE BATTERIES?">CLICK HERE FOR QUESTIONS?</a>
+        </p>
+        <p style="font-size:16px; font-weight:700; color:#157a5b; margin:4px 0 0 0;">
+          ⬆️ Click Questions? above to see
+        </p>
+      </div>
+    </div>
+
+    <section class="card">
+      <form id="calcForm" class="form-grid" onsubmit="return false;">
+
+        <div class="field">
+          <label for="bill">Monthly utility bill ($)</label>
+          <input id="bill" type="number" min="0" step="1" placeholder="e.g., 180" inputmode="decimal" />
+        </div>
+
+        <div class="field">
+          <label for="solarPayment">Monthly solar + battery payment ($)</label>
+          <input id="solarPayment" type="number" min="0" step="1" placeholder="auto from panels + batteries" inputmode="decimal" />
+          <div class="hint">Auto-fills from panel + battery counts. You can still override it.</div>
+        </div>
+
+        <div class="field">
+          <label for="yearsRange">Timeline (years): <span id="yearsDisplay">25</span></label>
+          <div class="range-wrap">
+            <input id="yearsRange" type="range" min="1" max="30" value="25" />
+          </div>
+        </div>
+
+        <div class="field span-2">
+          <label for="solarEsc">Escalator (solar plan rate increase)</label>
+          <select id="solarEsc">
+            <option value="0.0199" selected>1.99% per year</option>
+            <option value="0.0299">2.99% per year</option>
+            <option value="0.0349">3.949% per year</option>
+            <option value="0">0% (fixed)</option>
+          </select>
+        </div>
+
+        <div class="field span-3">
+          <div class="pricing-grid">
+            <div class="field" style="margin:0;">
+              <label for="panelQty">Panel count</label>
+              <input id="panelQty" type="number" min="0" step="1" value="0" inputmode="numeric" />
+            </div>
+
+            <div class="field" style="margin:0;">
+              <label for="priceBatteryQty">Battery count</label>
+              <input id="priceBatteryQty" type="number" min="0" step="1" value="0" inputmode="numeric" />
+            </div>
+
+            <div class="field" style="margin:0;">
+              <label>Auto monthly payment</label>
+              <div id="autoPayment" class="readonly-pill">$0</div>
+              <div class="hint">Auto = (panels × 10) + (batteries × 66)</div>
+            </div>
+          </div>
+        </div>
+
+        <input id="utilityEsc" type="hidden" value="0.09" />
+
+        <div class="actions span-3">
+          <button id="runBtn" class="btn" type="button">Calculate</button>
+        </div>
+      </form>
+
+      <div class="totals">
+        <div class="total card-lite">
+          <div class="total-label">Total Utility Cost</div>
+          <div id="utilTotal" class="total-value">$0</div>
+        </div>
+
+        <div class="total card-lite">
+          <div class="total-label">Total Savings (Utility vs Solar)</div>
+          <div id="savingsTotal" class="total-value">$0</div>
+        </div>
+      </div>
+
+      <article class="snapshot card-lite">
+        <header class="snap-header">
+          <h2 class="snap-year">Year <span id="snapYear">25</span></h2>
+          <span class="snap-tag">Snapshot</span>
+        </header>
+
+        <div class="snap-rows">
+          <div class="row"><span class="label">Monthly utility (est.)</span><span id="selMonthlyUtility" class="value">$0.00</span></div>
+          <div class="row"><span class="label">Annual utility (est.)</span><span id="selAnnualUtility" class="value">$0.00</span></div>
+        </div>
+      </article>
+    </section>
+
+    <section class="card" id="battery-credit">
+      <div class="totals" style="margin-top:16px;">
+        <div class="total card-lite">
+          <div class="total-label">Estimated monthly incentive</div>
+          <div id="monthlyCredit" class="total-value">$0</div>
+        </div>
+
+        <div class="total card-lite">
+          <div class="total-label">Estimated net monthly payment (after incentive)</div>
+          <div id="netMonthlyPayment" class="total-value">$0</div>
+        </div>
+      </div>
+
+      <p id="creditNote" class="section-kicker" style="margin-top:12px;"></p>
+
+      <h2 class="section-title">Battery Program Credit (APS or SRP)</h2>
+      <p class="section-kicker">
+        This is an estimate based on event performance (kW delivered during events), not monthly kWh usage.
+        Enter peak demand (kW) if you want it to auto-tune the event kW estimate.
+      </p>
+
+      <div class="form-grid" style="margin-top:14px;">
+        <div class="field">
+          <label for="program">Utility / Program</label>
+          <select id="program">
+            <option value="SRP_TESLA_VPP">SRP Tesla VPP (estimate)</option>
+            <option value="APS_BATTERY_PARTNER" selected>APS Battery Partner (kW per season)</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="batteryModel">Battery model</label>
+          <select id="batteryModel"></select>
+        </div>
+
+        <div class="field">
+          <label for="batteryQty">Battery quantity</label>
+          <input id="batteryQty" type="number" min="1" step="1" value="1" inputmode="numeric" />
+        </div>
+
+        <div class="field">
+          <label for="peakDemandKw">Peak demand from bill (kW) optional</label>
+          <input id="peakDemandKw" type="number" min="0" step="0.1" placeholder="e.g., 8.5" inputmode="decimal" />
+        </div>
+
+        <div class="field">
+          <label for="autoFromDemand">Auto-set event kW from demand</label>
+          <select id="autoFromDemand">
+            <option value="1" selected>On (recommended)</option>
+            <option value="0">Off (manual)</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="commitKw">Avg event kW per battery (editable)</label>
+          <input id="commitKw" type="number" min="0" step="0.1" value="13.5" inputmode="decimal" />
+        </div>
+
+        <div class="field">
+          <label for="perf">Performance factor (standard)</label>
+          <input id="perf" type="number" min="0" max="1" step="0.01" value="0.85" inputmode="decimal" />
+        </div>
+
+        <div class="field">
+          <label for="usableKwh">Estimated usable energy (kWh)</label>
+          <input id="usableKwh" type="text" readonly />
+        </div>
+
+        <div class="field">
+          <label for="powerKw">Max discharge power (kW)</label>
+          <input id="powerKw" type="text" readonly />
+        </div>
+
+        <div class="field">
+          <label for="creditedKw">Credited kW (avg)</label>
+          <input id="creditedKw" type="text" readonly />
+        </div>
+
+        <div class="actions span-3">
+          <button id="calcBatteryBtn" class="btn" type="button">Calculate incentive</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="reviews">
+      <h2 class="section-title">What local homeowners are saying</h2>
+      <p class="section-kicker">Independent public feedback from real customers.</p>
+      <div class="reviews-grid">
+        <figure class="rev"><img src="IMG_4873.jpeg" alt="Freedom Forever" /></figure>
+        <figure class="rev"><img src="IMG_4875.jpeg" alt="Freedom Forever" /></figure>
+        <figure class="rev"><img src="IMG_4877.jpeg" alt="Freedom Forever" /></figure>
+        <figure class="rev"><img src="IMG_4878.jpeg" alt="Freedom Forever" /></figure>
+        <figure class="rev"><img src="IMG_4879.jpeg" alt="Brad review" /></figure>
+        <figure class="rev"><img src="IMG_4876.jpeg" alt="Tammy review" /></figure>
+      </div>
+    </section>
+
+    <section class="slides">
+      <img src="02D5DE42-86E4-47FB-9EA8-5A0BB9E3F7DF.png" alt="Sponsors" loading="lazy" />
+      <img src="87641ED5-805B-417F-959C-DE5972223E0E.png" alt="FAQ" loading="lazy" />
+      <img src="171F7CB4-3F6B-41ED-A2DF-F6D7486D49E1.png" alt="Quality call" loading="lazy" />
+    </section>
+
+    <section class="card" id="lead-form">
+      <h2 class="section-title">Quick Form</h2>
+      <p class="section-kicker">Fill this out at the end to lock in the details.</p>
+
+      <div class="jotform-wrap">
+        <iframe
+          src="https://form.jotform.com/233164587079062"
+          title="Solar Intake Form"
+          loading="lazy"
+          allow="geolocation; microphone; camera"
+        ></iframe>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    (function () {
+      const $ = (id) => document.getElementById(id);
+
+      const billEl = $("bill");
+      const solarPaymentEl = $("solarPayment");
+      const yearsEl = $("yearsRange");
+      const yearsDisplayEl = $("yearsDisplay");
+      const solarEscEl = $("solarEsc");
+      const utilityEscEl = $("utilityEsc");
+
+      const panelQtyEl = $("panelQty");
+      const priceBatteryQtyEl = $("priceBatteryQty");
+      const autoPaymentEl = $("autoPayment");
+
+      const runBtn = $("runBtn");
+
+      const utilTotalEl = $("utilTotal");
+      const savingsTotalEl = $("savingsTotal");
+
+      const snapYearEl = $("snapYear");
+      const selMonthlyUtilityEl = $("selMonthlyUtility");
+      const selAnnualUtilityEl = $("selAnnualUtility");
+
+      function money0(n) {
+        const x = Number.isFinite(n) ? n : 0;
+        return x.toLocaleString(undefined, { style: "currency", currency: "USD", maximumFractionDigits: 0 });
+      }
+      function money2(n) {
+        const x = Number.isFinite(n) ? n : 0;
+        return x.toLocaleString(undefined, { style: "currency", currency: "USD", maximumFractionDigits: 2 });
+      }
+      function clamp(n, a, b) { return Math.max(a, Math.min(b, n)); }
+
+      function computeAutoPayment() {
+        const panels = Math.max(0, parseInt(panelQtyEl.value || "0", 9));
+        const bats = Math.max(0, parseInt(priceBatteryQtyEl.value || "0", 9));
+        const auto = panels * 9 + bats * 66;
+        autoPaymentEl.textContent = money0(auto);
+
+        const current = parseFloat(solarPaymentEl.value || "");
+        if (!Number.isFinite(current) || solarPaymentEl.dataset.userOverride !== "1") {
+          solarPaymentEl.value = auto ? String(auto) : "";
+          solarPaymentEl.dataset.userOverride = "0";
+        }
+        return auto;
+      }
+
+      function getInputs() {
+        const bill = Math.max(0, parseFloat(billEl.value || "0"));
+        const years = Math.max(1, parseInt(yearsEl.value || "25", 10));
+        const utilEsc = clamp(parseFloat(utilityEscEl.value || "0.09"), 0, 1);
+        const solarEsc = clamp(parseFloat(solarEscEl.value || "0.0199"), 0, 1);
+        const solarStart = Math.max(0, parseFloat(solarPaymentEl.value || "0"));
+        return { bill, years, utilEsc, solarEsc, solarStart };
+      }
+
+      function calcSeries() {
+        const { bill, years, utilEsc, solarEsc, solarStart } = getInputs();
+        const utilAnnual = [];
+        const solarAnnual = [];
+
+        for (let y = 1; y <= years; y++) {
+          const utilMonthlyY = bill * Math.pow(1 + utilEsc, y - 1);
+          const solarMonthlyY = solarStart * Math.pow(1 + solarEsc, y - 1);
+
+          utilAnnual.push(utilMonthlyY * 12);
+          solarAnnual.push(solarMonthlyY * 12);
+        }
+
+        const utilTotal = utilAnnual.reduce((a, b) => a + b, 0);
+        const solarTotal = solarAnnual.reduce((a, b) => a + b, 0);
+        const savingsTotal = utilTotal - solarTotal;
+
+        return { utilAnnual, solarAnnual, utilTotal, savingsTotal };
+      }
+
+      function render() {
+        yearsDisplayEl.textContent = yearsEl.value;
+        snapYearEl.textContent = yearsEl.value;
+
+        const { utilAnnual, solarAnnual, utilTotal, savingsTotal } = calcSeries();
+        utilTotalEl.textContent = money0(utilTotal);
+        savingsTotalEl.textContent = money0(savingsTotal);
+
+        const years = utilAnnual.length;
+        const utilMonthlyY = utilAnnual[years - 1] / 12;
+
+        selMonthlyUtilityEl.textContent = money2(utilMonthlyY);
+        selAnnualUtilityEl.textContent = money2(utilAnnual[years - 1]);
+
+        updateNetPayment();
+      }
+
+      const programEl = $("program");
+      const batteryModelEl = $("batteryModel");
+      const batteryQtyEl = $("batteryQty");
+      const peakDemandEl = $("peakDemandKw");
+      const autoFromDemandEl = $("autoFromDemand");
+      const commitKwEl = $("commitKw");
+      const perfEl = $("perf");
+
+      const usableKwhEl = $("usableKwh");
+      const powerKwEl = $("powerKw");
+      const creditedKwEl = $("creditedKw");
+      const monthlyCreditEl = $("monthlyCredit");
+      const netMonthlyPaymentEl = $("netMonthlyPayment");
+      const creditNoteEl = $("creditNote");
+      const calcBatteryBtn = $("calcBatteryBtn");
+
+      const BATTERIES = [
+        { id: "PW3", label: "Tesla Powerwall 3", usableKwh: 13.5, powerKw: 11.5, note: "Common AZ setup." },
+        { id: "PW2", label: "Tesla Powerwall 2", usableKwh: 13.5, powerKw: 5.0, note: "Older model." },
+        { id: "ENCHARGE10", label: "Enphase IQ Battery 10T", usableKwh: 10.1, powerKw: 3.84, note: "Modular." },
+        { id: "FRANKLIN", label: "FranklinWH aPower", usableKwh: 13.6, powerKw: 5.0, note: "Whole-home style." },
+      ];
+
+      let lastMonthlyCredit = 0;
+
+      function fillBatteryModels() {
+        batteryModelEl.innerHTML = "";
+        BATTERIES.forEach(b => {
+          const opt = document.createElement("option");
+          opt.value = b.id;
+          opt.textContent = b.label;
+          batteryModelEl.appendChild(opt);
+        });
+        batteryModelEl.value = "PW3";
+      }
+
+      function getBattery() {
+        return BATTERIES.find(b => b.id === batteryModelEl.value) || BATTERIES[0];
+      }
+
+      function calcCredit() {
+        const p = programEl.value;
+        const qty = Math.max(1, parseInt(batteryQtyEl.value || "1", 10));
+        const perf = clamp(parseFloat(perfEl.value || "0.85"), 0, 1);
+
+        const b = getBattery();
+        usableKwhEl.value = (b.usableKwh * qty).toFixed(1);
+        powerKwEl.value = (b.powerKw * qty).toFixed(2);
+
+        const demand = Math.max(0, parseFloat(peakDemandEl.value || "0"));
+        if (autoFromDemandEl.value === "1" && demand > 0) {
+          const capPerBattery = b.powerKw;
+          const suggested = clamp(demand * 0.65, 1, capPerBattery);
+          commitKwEl.value = suggested.toFixed(1);
+        }
+
+        const commitPerBattery = Math.max(0, parseFloat(commitKwEl.value || "0"));
+        const committed = commitPerBattery * qty;
+        const maxPower = b.powerKw * qty;
+
+        const credited = Math.min(committed, maxPower) * perf;
+        creditedKwEl.value = credited.toFixed(2);
+
+        let annual = 0;
+        let note = "";
+
+        if (p === "SRP_BATTERY_PARTNER") {
+          annual = credited * 110;
+          note = "SRP Battery Partner estimate uses $55 per kW per season × 2 seasons/year (performance-adjusted).";
+        } else {
+          const cappedKw = Math.min(credited, 20);
+          annual = cappedKw * 80;
+          note = "APS Tesla VPP estimate is simplified and conservative; actual payouts vary by events and caps.";
+        }
+
+        const monthly = annual / 12;
+        lastMonthlyCredit = monthly;
+
+        monthlyCreditEl.textContent = money0(monthly);
+        creditNoteEl.textContent = note + " Battery: " + b.label + ". " + (b.note || "");
+
+        updateNetPayment();
+      }
+
+      function updateNetPayment() {
+        const gross = Math.max(0, parseFloat(solarPaymentEl.value || "0"));
+        const net = Math.max(0, gross - (Number.isFinite(lastMonthlyCredit) ? lastMonthlyCredit : 0));
+        netMonthlyPaymentEl.textContent = money0(net);
+      }
+
+      yearsEl.addEventListener("input", () => {
+        yearsDisplayEl.textContent = yearsEl.value;
+        snapYearEl.textContent = yearsEl.value;
+      });
+
+      panelQtyEl.addEventListener("input", () => { computeAutoPayment(); updateNetPayment(); });
+      priceBatteryQtyEl.addEventListener("input", () => { computeAutoPayment(); updateNetPayment(); });
+
+      solarPaymentEl.addEventListener("input", () => {
+        solarPaymentEl.dataset.userOverride = "1";
+        updateNetPayment();
+      });
+
+      runBtn.addEventListener("click", render);
+
+      calcBatteryBtn.addEventListener("click", calcCredit);
+      programEl.addEventListener("change", calcCredit);
+      batteryModelEl.addEventListener("change", calcCredit);
+      batteryQtyEl.addEventListener("input", calcCredit);
+      peakDemandEl.addEventListener("input", calcCredit);
+      autoFromDemandEl.addEventListener("change", calcCredit);
+      commitKwEl.addEventListener("input", calcCredit);
+      perfEl.addEventListener("input", calcCredit);
+
+      yearsDisplayEl.textContent = yearsEl.value;
+      snapYearEl.textContent = yearsEl.value;
+      fillBatteryModels();
+      computeAutoPayment();
+      render();
+      calcCredit();
+    })();
+  </script>
+</body>
+</html>
