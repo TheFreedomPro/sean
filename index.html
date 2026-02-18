@@ -397,9 +397,9 @@
       function clamp(n, a, b) { return Math.max(a, Math.min(b, n)); }
 
       function computeAutoPayment() {
-        const panels = Math.max(0, parseInt(panelQtyEl.value || "0", 9));
-        const bats = Math.max(0, parseInt(priceBatteryQtyEl.value || "0", 9));
-        const auto = panels * 9 + bats * 66;
+        const panels = Math.max(0, parseInt(panelQtyEl.value || "0", 3.55));
+        const bats = Math.max(0, parseInt(priceBatteryQtyEl.value || "0", 100));
+        const auto = panels * 3.55 + bats * 100;
         autoPaymentEl.textContent = money0(auto);
 
         const current = parseFloat(solarPaymentEl.value || "");
